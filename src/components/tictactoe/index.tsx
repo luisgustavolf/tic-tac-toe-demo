@@ -1,16 +1,13 @@
 import * as React from 'react'
-
-import './styles.scss'
-import { TapArea } from './tapArea'
+import { Board } from './board'
+import { Header } from './header'
 import { useTicTacToe } from './useTicTacToe'
 
-export interface TicTacToeProps {
-    children?: any
-}
+import './styles.scss'
 
-export function TicTacToe(props:TicTacToeProps) {
+export function TicTacToe() {
 
-    const { game, hasEnded, winner, player, tap, reset } = useTicTacToe()
+    const { gameState, nextPlayer, hasEnded, winner, winMove, tap, reset } = useTicTacToe()
 
     // ---------------------------------------------
     // Transformations
@@ -19,20 +16,18 @@ export function TicTacToe(props:TicTacToeProps) {
 
     return (
         <div className={'tttd-board-wrap'}>
-            <h2>Tic Tac Toe</h2>
-            <div className={'tttd-board'}>
-                {[0,1,2].map((row) =>
-                    <React.Fragment key={row}>
-                        {[0,1,2].map((col) =>
-                            <TapArea 
-                                key={col}
-                                value={game[row][col]}
-                                onTap={() => { tap(row, col) }}
-                            />
-                        )}
-                    </React.Fragment>
-                )}
-            </div>
+            <Header 
+                winner={winner}
+                hasEnded={hasEnded}
+                nextPlayer={nextPlayer}
+                onReset={reset}
+            />
+
+            <Board
+                gameState={gameState}
+                winMove={winMove}
+                onTap={tap}
+            />
         </div>
     )
 }

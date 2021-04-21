@@ -1,1 +1,3 @@
-export type TicTacToeValue = -1 | 0 | 1  
+export type TicTacToePlayer = -1 | 1
+
+export type TicTacToeValue = TicTacToePlayer | 0   

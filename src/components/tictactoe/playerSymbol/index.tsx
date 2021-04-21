@@ -1,11 +1,11 @@
 import * as React from 'react'
 import { TicTacToeValue } from '../types'
 
-export interface ValueAsPlayerProps {
+export interface PlayerSymbolProps {
     value: TicTacToeValue
 }
 
-export function ValueAsPlayer(props: ValueAsPlayerProps) {
+export function PlayerSymbol(props: PlayerSymbolProps) {
     const { value } = props
 
     // ---------------------------------------------

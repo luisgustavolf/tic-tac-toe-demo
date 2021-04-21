@@ -1,11 +1,11 @@
 import * as React from 'react'
+import { PlayerSymbol } from '../playerSymbol'
 import { TicTacToeValue } from '../types'
-import { ValueAsPlayer } from '../valueAsPlayer'
-
 import './styles.scss'
 
 export interface TapAreaProps {
     value: TicTacToeValue,
+    highlight?: boolean
     onTap: () => void
 }
 
@@ -18,10 +18,10 @@ export function TapArea(props:TapAreaProps) {
 
     return (
         <div 
-            className={'tttd-tap-area'}
+            className={`tttd-tap-area ${props.highlight ? 'highlight' : ''}`}
             onClick={()=> props.onTap()}
         >
-            <ValueAsPlayer value={props.value}/>
+            <PlayerSymbol value={props.value}/>
         </div>
     )
 }
