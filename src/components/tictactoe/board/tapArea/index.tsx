@@ -1,6 +1,6 @@
 import * as React from 'react'
-import { PlayerSymbol } from '../playerSymbol'
-import { TicTacToeValue } from '../types'
+import { PlayerSymbol } from '../../playerSymbol'
+import { TicTacToeValue } from '../../types'
 import './styles.scss'
 
 export interface TapAreaProps {

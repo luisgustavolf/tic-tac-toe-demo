@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { TapArea } from '../tapArea'
+import { TapArea } from './tapArea'
 import { TicTacToeValue } from '../types'
 
 import './styles.scss'
