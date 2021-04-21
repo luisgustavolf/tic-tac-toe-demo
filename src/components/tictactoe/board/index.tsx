@@ -14,16 +14,14 @@ export function Board(props: BoardProps) {
     const { gameState: game, winMove, onTap }  = props
     
     // ---------------------------------------------
+    // Functions
+
+    function isPartOfWinMove(row: number, col: number) {
+        return winMove && winMove.some((move) => move[0] === row && move[1] === col)
+    }
+
+    // ---------------------------------------------
     // Transformations
-
-    const isPartOfWinMove = React.useCallback((row, col) => {
-        if (winMove) {
-            return winMove.some((move) => move[0] === row && move[1] === col)
-        }
-        
-        return false
-    }, [winMove])
-
     // ---------------------------------------------
     // Render
 
