@@ -1,6 +1,7 @@
 import * as React from 'react'
-import { TapArea } from './tapArea'
 import { TicTacToeValue } from '../types'
+import { useBoard } from './hook'
+import { TapArea } from './tapArea'
 
 import './styles.scss'
 
@@ -11,14 +12,8 @@ export interface BoardProps {
 }
 
 export function Board(props: BoardProps) {
-    const { gameState: game, winMove, onTap }  = props
-    
-    // ---------------------------------------------
-    // Functions
-
-    function isPartOfWinMove(row: number, col: number) {
-        return winMove && winMove.some((move) => move[0] === row && move[1] === col)
-    }
+    const { gameState, winMove, onTap }  = props
+    const { isPartOfWinMove } = useBoard()
 
     // ---------------------------------------------
     // Transformations
@@ -32,8 +27,8 @@ export function Board(props: BoardProps) {
                     {[0, 1, 2].map((col) =>
                         <TapArea
                             key={col}
-                            value={game[row][col]}
-                            highlight={isPartOfWinMove(row, col)}
+                            value={gameState[row][col]}
+                            highlight={winMove && isPartOfWinMove(winMove, row, col)}
                             onTap={() => { onTap(row, col) }}
                         />
                     )}

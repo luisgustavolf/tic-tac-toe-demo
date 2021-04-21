@@ -15,7 +15,8 @@ export function useTicTacToe() {
     const [gameState, setStateGame] = React.useState(getInitialGame())
     const { hasEnded, winMove } = useGameStatus({ gameState })
     
-    const winner = hasEnded ? nextPlayer * -1 as TicTacToePlayer : undefined
+    // ---------------------------------------------
+    // Functions
 
     const tap = React.useCallback((row, col) => {
         if (hasEnded) {
@@ -32,6 +33,16 @@ export function useTicTacToe() {
     const reset = React.useCallback(() => {
         setStateGame(getInitialGame())
     }, [])
+
+    // ---------------------------------------------
+    // Effects
+    // ---------------------------------------------
+    // Transformations
+
+    const winner = hasEnded ? nextPlayer * -1 as TicTacToePlayer : undefined
+
+    // ---------------------------------------------
+    // API
 
     return {
         hasEnded,
