@@ -6,7 +6,7 @@ export function useBoard() {
     // Functions
     
     const isPartOfWinMove = React.useCallback((winMove: number[][], row: number, col: number) => {
-        return winMove && winMove.some((move) => move[0] === row && move[1] === col)
+        return winMove.some((move) => move[0] === row && move[1] === col)
     }, [])
 
     // ---------------------------------------------
