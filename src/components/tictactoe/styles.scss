@@ -1,0 +1,10 @@
+.tttd-board-wrap { 
+    .tttd-board {
+        display: grid;
+        grid-template-columns: 100px 100px 100px;
+        grid-gap: 3px;
+        background-color: #ccc;
+        width: 300px;
+        height: 300px;
+    }
+}
